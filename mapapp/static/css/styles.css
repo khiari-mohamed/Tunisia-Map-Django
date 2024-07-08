@@ -1,0 +1,68 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111; /* Night vision background color */
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.pulse-marker {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.pulse-marker div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: rgba(0, 255, 0, 0.6);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 20px 10px rgba(0, 255, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px 5px rgba(0, 255, 0, 0.6);
+    }
+}
+
+.path-animate {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: dash 4s linear forwards, color-change 4s linear forwards; 
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes color-change {
+    0% {
+        stroke: rgb(255, 123, 47);
+    }
+    50% {
+        stroke: rgb(200, 50, 205);
+    }
+    100% {
+        stroke: rgb(217, 255, 0);
+    }
+}
